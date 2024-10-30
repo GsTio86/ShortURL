@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check out code
@@ -24,9 +24,16 @@ jobs:
       - name: Build Vue.js app
         run: npm run build
 
+      - name: Check if dist folder exists
+        run: |
+          echo "Checking dist directory contents..."
+          ls -al ./dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist  # Vue.js
           publish_branch: gh-pages
+          exclude_assets: "**/.*"
+          enable_jekyll: false
