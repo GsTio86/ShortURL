@@ -8,6 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./ShortURL 
 
     steps:
       - name: Check out code
@@ -35,5 +38,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist  # Vue.js
           publish_branch: gh-pages
-          exclude_assets: "**/.*"
-          enable_jekyll: false
