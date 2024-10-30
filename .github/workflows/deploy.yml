@@ -8,9 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./ShortURL 
 
     steps:
       - name: Check out code
@@ -30,11 +27,11 @@ jobs:
       - name: Check if dist folder exists
         run: |
           echo "Checking dist directory contents..."
-          ls -al ./dist
+          ls -al dist/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Vue.js
+          publish_dir: dist  # Vue.js
           publish_branch: gh-pages
