@@ -40,7 +40,7 @@
 
   export default {
     name: 'ResultUrl',
-    props: ['longUrl', 'shortUrl', 'qrCode'],
+    props: ['longUrl', 'shortUrl'],
     methods: {
       copyShortUrl() {
         navigator.clipboard.writeText(this.shortUrl).then(() => {

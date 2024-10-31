@@ -4,7 +4,7 @@
       <input type="url" v-model="longUrl" class="form-control w-75" placeholder="輸入要縮短的網址">
       <button class="btn btn-primary" type="button" @click="tryShortUrl()">縮址</button>
     </div>
-    <ResultUrl v-if="shortUrl" :long-url="longUrl" :short-url="shortUrl" :qr-code="qrCode" />
+    <ResultUrl v-if="shortUrl" :long-url="longUrl" :short-url="shortUrl"/>
   </ul>
 </template>
 <script>
@@ -18,9 +18,7 @@ export default {
   data() {
     return {
       longUrl: '',
-      shortUrl: '',
-      qrCode: '',
-      qrCodeSize: 150
+      shortUrl: ''
     };
   },
   methods: {
@@ -41,7 +39,6 @@ export default {
           }
       ).then((res) => {
         this.shortUrl = window.location.origin + '/' + res.data
-        this.qrCode = `https://api.qrserver.com/v1/create-qr-code/?size=${this.qrCodeSize}x${this.qrCodeSize}&data=${this.shortUrl}`
         swal.fire({
           title: '縮址成功',
           text: '短網址已產生，請查看下方結果。',
