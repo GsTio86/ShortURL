@@ -6,6 +6,8 @@ import me.gt.shorturl.model.ShortUrlInfo;
 import me.gt.shorturl.service.RedisService;
 import me.gt.shorturl.service.ShortUrlService;
 import me.gt.shorturl.util.URLShortUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,8 @@ public class ShortUrlServiceImpl implements ShortUrlService {
 
     @Value("${shorturl.timeout}")
     private long timeout;
+
+    private static final Logger logger = LoggerFactory.getLogger("ShortUrlService");
 
     private static final String DUPLICATE_CHAR = "*";
 
@@ -57,6 +61,7 @@ public class ShortUrlServiceImpl implements ShortUrlService {
                 .build();
         shortUrlMapper.createShortUrl(shortUrlInfo); // 存到資料庫
         redisService.saveShortUrl(shortUrl, longUrl, timeout); // 放入緩存
+        logger.info("建立短網址: {} -> {}", shortUrl, originalUrl);
         return shortUrl;
     }
 
@@ -95,5 +100,6 @@ public class ShortUrlServiceImpl implements ShortUrlService {
     public void deleteShortUrl(String shortUrl) {
         redisService.deleteShortUrl(shortUrl); // 刪除緩存
         shortUrlMapper.deleteShortUrl(shortUrl);
+        logger.info("刪除短網址: {}", shortUrl);
     }
 }
