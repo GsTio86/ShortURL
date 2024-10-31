@@ -43,10 +43,13 @@ export default {
 
 <style scoped>
 .theme-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
 }
 
 input[type="checkbox"] {
@@ -110,5 +113,13 @@ input[type="checkbox"]:checked + .switch .moon {
 
 input[type="checkbox"]:checked + .switch .sun {
   opacity: 0;
+}
+
+@media (max-width: 576px) {
+  .theme-switch {
+    top: 15px;
+    right: 10px;
+    transform: scale(0.8); /* 縮小按鈕以適應手機螢幕 */
+  }
 }
 </style>

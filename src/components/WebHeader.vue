@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-dark mb-4">
+  <nav class="navbar navbar-expand-lg mb-4">
     <div class="container-fluid align-items-center">
-      <img :src="logo" alt="logo" class="logo d-inline-block align-text-top me-2"/>
-      <h1 class="title mt-3 text-light">短網址產生器</h1>
+      <img :src="logo" alt="logo" class="logo d-inline-block align-text-top me-2" />
+      <h1 class="title">短網址產生器</h1>
     </div>
   </nav>
 </template>
@@ -18,15 +18,44 @@ export default {
 };
 </script>
 <style>
+.navbar {
+  background-color: #2c3e50;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
 .logo {
-  height: 128px;
+  height: 80px;
   width: auto;
   max-width: 100%;
 }
 
+.title {
+  font-size: 1.8rem;
+  color: #ecf0f1;
+  margin: 0;
+  padding-left: 10px;
+  text-align: center;
+}
+
 @media (max-width: 992px) {
   .logo {
-    height: 64px;
+    height: 60px;
+  }
+  .title {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    height: 48px;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+  .navbar {
+    padding: 0.5rem;
   }
 }
 
@@ -35,7 +64,10 @@ export default {
     height: 32px;
   }
   .title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+  .navbar {
+    padding: 0.3rem;
   }
 }
 </style>

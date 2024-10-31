@@ -1,7 +1,7 @@
 <template>
   <ul class="list-group mt-5">
     <div class="input-group input-group-lg mb-3">
-      <input type="url" v-model="longUrl" class="form-control w-75" placeholder="輸入要縮短的網址">
+      <input type="url" v-model="longUrl" class="form-control" placeholder="輸入要縮短的網址">
       <button class="btn btn-primary" type="button" @click="tryShortUrl()">縮址</button>
     </div>
     <ResultUrl v-if="shortUrl" :long-url="longUrl" :short-url="shortUrl"/>
@@ -56,9 +56,11 @@ export default {
 }
 </script>
 <style>
-/* 確保輸入框和按鈕在所有螢幕上保持水平排列 */
 .input-group {
-  flex-wrap: nowrap; /* 禁止自動換行 */
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .input-group .form-control {
@@ -69,21 +71,25 @@ export default {
 .input-group .btn {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  white-space: nowrap; /* 防止按鈕內文字換行 */
+  white-space: nowrap;
 }
 
-/* 在小螢幕上確保輸入框和按鈕都適應畫面寬度 */
+@media (min-width: 768px) {
+  .input-group-lg .form-control {
+    width: 75%;
+  }
+}
+
 @media (max-width: 576px) {
   .input-group {
     width: 100%;
+    justify-content: flex-start;
   }
-
-  .input-group .form-control {
-    flex: 1;
-  }
-
+  .input-group .form-control,
   .input-group .btn {
-    flex: 0; /* 讓按鈕不會撐滿整列 */
+    flex: 1;
+    max-width: 50%;
+    border-radius: 0;
   }
 }
 
