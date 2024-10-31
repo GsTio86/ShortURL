@@ -22,6 +22,8 @@ jobs:
         run: npm install
 
       - name: Build Vue.js app
+        env:
+          VITE_API_URL: ${{ env.VITE_API_URL }}
         run: npm run build
 
       - name: Check if dist folder exists
