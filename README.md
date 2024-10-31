@@ -1,6 +1,6 @@
 # URL 短網址服務
 
-**ShortURL** 的前端部分是使用 **Vue.js** 構建的，旨在為使用者提供快速、直觀的短網址服務體驗。前端與後端實現了分離，確保系統的模組化、可維護性及擴展性。
+**ShortURL** 的前端部分是使用 **Vue.js** 製作的，旨在為使用者提供快速、直觀的短網址服務體驗。前端與後端實現了分離，確保系統的模組化、可維護性及擴展性。
 
 ---
 
@@ -14,7 +14,7 @@
 ## **使用技術**
 
 - **[Vue.js](https://vuejs.org/)**：主要的前端框架，用於構建動態且響應式的使用者界面。
-- **[Axios](https://github.com/axios/axios)**：用於與後端 API 進行串接。
+- **[Axios](https://axios-http.com/)**：用於與後端 API 進行串接。
 - **[Vue Router](https://router.vuejs.org/)**：用於管理應用的路徑，使不同的頁面之間能夠方便地切換。
 - **[Bootstrap](https://getbootstrap.com/)**：使用 Bootstrap 來設計響應式的使用者介面，提供一致且美觀的佈局和樣式。
 - **[SweetAlert2](https://sweetalert2.github.io/)**：用於顯示美觀且易用的提示訊息和彈出框。
