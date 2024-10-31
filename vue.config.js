@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/shorturl-vue/' : '/'
-}
+    publicPath: process.env.NODE_ENV === 'production' ? '/tools/' : '/'
+};
