@@ -47,7 +47,7 @@ export default {
       }).catch((err) => {
         swal.fire({
           title: '縮址失敗',
-          text: `請確認網址是否正確! ${err.message}`,
+          text: `請確認網址是否正確！`,
           icon: 'error'
         });
       });
