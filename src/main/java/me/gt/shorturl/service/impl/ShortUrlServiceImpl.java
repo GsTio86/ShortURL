@@ -92,11 +92,6 @@ public class ShortUrlServiceImpl implements ShortUrlService {
     }
 
     @Override
-    public void addVisitCount(String shortUrl) {
-        shortUrlMapper.addVisitCount(shortUrl);
-    }
-
-    @Override
     public void deleteShortUrl(String shortUrl) {
         redisService.deleteShortUrl(shortUrl); // 刪除緩存
         shortUrlMapper.deleteShortUrl(shortUrl);

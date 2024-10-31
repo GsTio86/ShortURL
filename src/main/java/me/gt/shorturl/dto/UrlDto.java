@@ -1,0 +1,11 @@
+package me.gt.shorturl.dto;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
+
+@Data
+public class UrlDto {
+
+    @Schema(description = "網址", example = "https://www.google.com")
+    private String url;
+}

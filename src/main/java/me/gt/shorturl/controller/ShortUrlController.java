@@ -2,6 +2,7 @@ package me.gt.shorturl.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import me.gt.shorturl.dto.UrlDto;
 import me.gt.shorturl.model.ShortUrlInfo;
 import me.gt.shorturl.service.ShortUrlService;
 import me.gt.shorturl.util.URLShortUtils;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api")
+@RequestMapping
 @Tag(name = "短網址 API", description = "管理短網址的操作")
 public class ShortUrlController {
 
@@ -21,15 +22,9 @@ public class ShortUrlController {
     private ShortUrlService shortUrlService;
 
     @Operation(summary = "產生短網址")
-    @GetMapping("/generate/{url}")
-    public ResponseEntity<String> generateShortUrlGet(@PathVariable("url") String url) {
-        return generateShortUrl(url);
-    }
-
-    @Operation(summary = "產生短網址")
-    @PostMapping("/generate")
-    public ResponseEntity<String> generateShortUrlPost(@RequestParam("url") String url) {
-        return generateShortUrl(url);
+    @PostMapping(path = "/generate", consumes = "application/json")
+    public ResponseEntity<String> generateShortUrlPost(@RequestBody UrlDto urlDto) {
+        return generateShortUrl(urlDto.getUrl());
     }
 
     @Operation(summary = "取得所有短網址")

@@ -24,8 +24,4 @@ public class ShortUrlInfo {
     @Schema(description = "點擊次數", example = "0")
     @Builder.Default
     private int clickCount = 0;
-
-    @Schema(description = "訪問次數", example = "0")
-    @Builder.Default
-    private int visitCount = 0;
 }

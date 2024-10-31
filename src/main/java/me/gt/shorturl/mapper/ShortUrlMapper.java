@@ -21,9 +21,6 @@ public interface ShortUrlMapper {
     @Update("update shorturl_data set clickCount = clickCount + 1 where shortUrl = #{shortUrl}")
     int addClickCount(String shortUrl);
 
-    @Update("update shorturl_data set visitCount = visitCount + 1 where shortUrl = #{shortUrl}")
-    int addVisitCount(String shortUrl);
-
     @Delete("delete from shorturl_data where shortUrl = #{shortUrl}")
     int deleteShortUrl(String shortUrl);
 

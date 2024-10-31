@@ -16,7 +16,5 @@ public interface ShortUrlService {
 
     void addClickCount(String shortUrl);
 
-    void addVisitCount(String shortUrl);
-
     void deleteShortUrl(String shortUrl);
 }

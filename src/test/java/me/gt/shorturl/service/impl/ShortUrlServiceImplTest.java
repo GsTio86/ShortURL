@@ -42,15 +42,6 @@ class ShortUrlServiceImplTest {
     }
 
     @Test
-    void addVisitCount() {
-        service.addVisitCount("S12nyC");
-        ShortUrlInfo shortUrlInfo = service.getShortUrlInfo("S12nyC");
-        if (shortUrlInfo != null) {
-            System.out.println(shortUrlInfo);
-        }
-    }
-
-    @Test
     void deleteShortUrl() {
         service.deleteShortUrl("S12nyC");
     }
