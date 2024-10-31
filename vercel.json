@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://api.url4g.cc/api/:path*"
+    },
+    {
+      "source": "/:url",
+      "destination": "https://api.url4g.cc/:url"
+    }
+  ]
+}

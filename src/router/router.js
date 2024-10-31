@@ -7,7 +7,7 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory('/tools/'),
+    history: createWebHistory(),
     routes,
 })
 
