@@ -8,8 +8,8 @@ import java.util.List;
 @Mapper
 public interface ShortUrlMapper {
 
-    @Insert("insert into shorturl_data (shortUrl, originalUrl, createAt, clickCount, visitCount) " +
-            "values (#{shortUrl}, #{originalUrl}, #{createAt}, #{clickCount}, #{visitCount})")
+    @Insert("insert into shorturl_data (shortUrl, originalUrl, createAt, clickCount) " +
+            "values (#{shortUrl}, #{originalUrl}, #{createAt}, #{clickCount})")
     void createShortUrl(ShortUrlInfo shortUrlInfo);
 
     @Select("select * from shorturl_data where shortUrl = #{shortUrl}")
