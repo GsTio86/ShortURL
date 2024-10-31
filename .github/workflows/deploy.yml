@@ -37,8 +37,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
-          allow_empty_commit: false
-          enable_jekyll: false
 
       - name: Deployment complete
         run: echo "Deployment to GitHub Pages completed successfully!"
